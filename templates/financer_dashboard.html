@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financer Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+            
+        }
+        .container {
+            width: 500px;
+            margin: 0 auto;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+        }
+        .btn-here {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            
+        }
+        .btn-here:hover {
+            background-color: #218838;
+        }
+        h1,h2{
+            color: aquamarine;
+        }
+        label{
+            color: white;
+        }
+        
+        hr{
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <div style="
+            display: block;
+            max-width: fit-content;"><h1>Financer Dashboard</h1>
+        <hr>
+        </div>
+        <!-- Accountant Form -->
+        <form id="accountant-form" action="/financer/dashboard" method="POST">
+            <h2>Add Accountant</h2>
+            <input type="hidden" name="form_type" value="accountant">
+            <label for="accountant_name">Accountant Name:</label>
+            <input type="text" id="accountant_name" name="accountant_name" required>
+
+            <label for="profit_handler_id">Profit Handler ID:</label>
+            <input type="text" id="profit_handler_id" name="profit_handler_id" required>
+
+            <button type="submit" class="btn btn-here">Add Accountant</button>
+        </form>
+        <hr>
+        <!-- Profit Handler Form -->
+        <form id="profit-handler-form" action="/financer/dashboard" method="POST">
+            <h2>Add Profit Handler</h2>
+            <input type="hidden" name="form_type" value="profit_handler">
+            <label for="profit_handler_name">Profit Handler Name:</label>
+            <input type="text" id="profit_handler_name" name="profit_handler_name" required>
+
+            <button type="submit" class="btn btn-here">Add Profit Handler</button>
+        </form>
+        <hr>
+        <!-- Deal Form -->
+        <form id="deal-form" action="/financer/dashboard" method="POST">
+            <h2>Add Deal</h2>
+            <input type="hidden" name="form_type" value="deal">
+            <label for="deal_status">Deal Status:</label>
+            <input type="text" id="deal_status" name="deal_status" required>
+
+            <label for="manufacturer_id">Manufacturer ID:</label>
+            <input type="text" id="manufacturer_id" name="manufacturer_id" required>
+
+            <label for="profit_handler_ids">Profit Handler IDs (comma-separated):</label>
+            <input type="text" id="profit_handler_ids" name="profit_handler_ids" required>
+
+            <button type="submit" class="btn btn-here">Add Deal</button>
+        </form>
+        <div class="mt-4">
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

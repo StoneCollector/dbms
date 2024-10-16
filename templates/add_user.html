@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container_cr{
+            flex-grow: 1;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #000000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        body{   
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+            overflow: hidden;
+        }
+        h1,h2{
+            color: aquamarine;
+        }
+        label{
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <div class="container_cr" style="margin:100px auto">
+        <h2>Add New User</h2>
+        <form action="/add_user" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="pass" class="form-control" required><br>
+                <button type="button" id="toggle" class="btn btn-primary" onclick="myFunction()">Show Password</button>
+            </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select name="role" class="form-control" required>
+                    <option value="manager">Manager</option>
+                    <option value="financer">Financer</option>
+                    <option value="manufacturer">Manufacturer</option>
+                    <option value="retailer">Retailer</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add User</button>
+        </form>
+        <div class="mt-4">
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+</body>
+<script>
+    function myFunction() {
+    var x = document.getElementById("pass");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+</html>

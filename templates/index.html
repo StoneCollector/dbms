@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Overview</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body{   
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+            overflow: hidden;
+        }
+        h1,h2{
+            color: aquamarine;
+        }
+        thead,tbody{
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Database Overview</h1>
+
+        <!-- Display Managers and their Contracts -->
+        <h2>Managers and Contracts</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Manager Name</th>
+                    <th>Contracts</th>
+                    <th>Legal Advisor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for manager in managers %}
+                <tr>
+                    <td>{{ manager.name }}</td>
+                    <td>
+                        <ul>
+                            {% for contract in manager.contracts %}
+                            <li>{{ contract.advice }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            {% for contract in manager.contracts %}
+                            <li>{{ contract.legal_advisor.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Display Deals and Profit Handlers -->
+        <h2>Deals and Profit Handlers</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Deal Status</th>
+                    <th>Manufacturer</th>
+                    <th>Profit Handlers</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deal in deals %}
+                <tr>
+                    <td>{{ deal.status }}</td>
+                    <td>{{ deal.manufacturer.name }}</td>
+                    <td>
+                        <ul>
+                            {% for handler in deal.profit_handlers %}
+                            <li>{{ handler.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Display Accountants and Profit Handlers -->
+        <h2>Accountants and Profit Handlers</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Accountant Name</th>
+                    <th>Profit Handler</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for accountant in accountants %}
+                <tr>
+                    <td>{{ accountant.name }}</td>
+                    <td>{{ accountant.profit_handler.name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

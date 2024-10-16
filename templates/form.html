@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Input Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+            
+        }
+        hr{
+            border: 2px solid white;
+        }
+        h1,h2{
+            color: aquamarine;
+        }
+        label{
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div style="
+            display: block;
+            max-width: fit-content;"><h1>Input Data into Database</h1>
+            <hr>
+            </div>
+
+        <!-- Form to input Manager, Contract, and Deal -->
+        <form action="/add_data" method="POST">
+            <h2>Add Manager</h2>
+            <div class="form-group">
+                <label for="manager_name">Manager Name</label>
+                <input type="text" class="form-control" id="manager_name" name="manager_name" required>
+            </div>
+
+            <h2>Add Contract</h2>
+            <div class="form-group">
+                <label for="contract_advice">Contract Advice</label>
+                <input type="text" class="form-control" id="contract_advice" name="contract_advice" required>
+            </div>
+            <div class="form-group">
+                <label for="legal_advisor_name">Legal Advisor Name</label>
+                <input type="text" class="form-control" id="legal_advisor_name" name="legal_advisor_name" required>
+            </div>
+
+            <h2>Add Deal</h2>
+            <div class="form-group">
+                <label for="deal_status">Deal Status</label>
+                <input type="text" class="form-control" id="deal_status" name="deal_status" required>
+            </div>
+            <div class="form-group">
+                <label for="manufacturer_name">Manufacturer Name</label>
+                <input type="text" class="form-control" id="manufacturer_name" name="manufacturer_name" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!-- Button to display all data -->
+        <div class="mt-4">
+            <a href="/display_data" class="btn btn-success">Display All Data</a>
+        </div>
+        
+        <div class="mt-4">
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

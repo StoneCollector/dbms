@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+            overflow: hidden;
+        }
+
+        .login-container {
+            flex-grow: 1;
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #000000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: aquamarine;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            border: 1px solid #000;
+            border-radius: 4px;
+            
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.5s;
+            
+        }
+
+        .form-control:focus {
+            border-color: #00c3ff;
+            outline:#000;
+        }
+
+        /* Label styling */
+        label {
+            position: absolute;
+            top: 7px; /* Adjusted starting position */
+            left: 10px;
+            color: #aaa;
+            transition: all 0.3s;
+            pointer-events: none;
+            font-size: 16px;
+        }
+
+        /* When input is focused or has content, move label above */
+        .form-control:focus + label,
+        .form-control:not(:placeholder-shown) + label {
+             /* Move label above the input field */
+            top: -12px;
+            left: 12px;
+            font-size: 14px;
+            color: #0084ff;
+            border-width: 3px;
+            border-radius: 5px;
+            background-color: white;
+            padding-inline: 8px;
+            
+        }
+        .btn-primary {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 class="text-center">Login</h2>
+        <form method="POST" action="/login">
+            <div class="form-group">
+                <input type="text" class="form-control" id="username" name="username" required placeholder=" ">
+                <label for="username">Username</label>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" name="password" required placeholder=" ">
+                <label for="password">Password</label><br>
+                <button type="button" id="toggle" class="btn btn-primary" onclick="myFunction()">Show Password</button>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>

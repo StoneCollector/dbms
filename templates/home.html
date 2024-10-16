@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .blk {
+            font-family: Arial, sans-serif;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+            
+        }
+        hr{
+            border: 2px solid white;
+        }
+        h1,h2{
+            color: aquamarine;
+        }
+        p{
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Dashboard App</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="blk">
+    <div class="container mt-5">
+        <h1 class="text-center">Welcome to the Dashboard Application</h1>
+        <p class="text-center">This is the main landing page. Please login to access your dashboard.</p>
+        <div class="text-center mt-3">
+            <a href="/login" class="btn btn-primary">Login</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
